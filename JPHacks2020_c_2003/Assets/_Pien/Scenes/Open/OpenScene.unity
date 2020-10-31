@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 276315277}
   - component: {fileID: 276315275}
   - component: {fileID: 276315274}
-  - component: {fileID: 276315279}
+  - component: {fileID: 276315276}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -289,6 +289,19 @@ Behaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 276315273}
   m_Enabled: 1
+--- !u!114 &276315276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276315273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 891f0c070eef5814ca3cf42ed72fb166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RainScript: {fileID: 127088420}
 --- !u!20 &276315277
 Camera:
   m_ObjectHideFlags: 0
@@ -346,20 +359,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &276315279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 276315273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07098deef08d9114d86d991233aca5db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RainSlider: {fileID: 0}
-  RainScript: {fileID: 127088420}
 --- !u!1 &486806930
 GameObject:
   m_ObjectHideFlags: 0
