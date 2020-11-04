@@ -32,10 +32,13 @@ public class inT : MonoBehaviour
     {
 
         string inputValue = inputField.text;
-
-      //  Debug.Log(inputValue);
-
-        FileStr.InputStr(inputValue);
+        if (inputValue.Length >= 2)
+        {
+            int pn = Feel.Get(inputValue);
+            FileStr.InputStr(inputValue + "@" + pn);
+        }
+        //  Debug.Log(inputValue);
+        
 
         InitInputField();
     }
