@@ -35,7 +35,7 @@ public class inT : MonoBehaviour
         if (inputValue.Length >= 2)
         {
             int pn = Feel.Get(inputValue);
-            FileStr.InputStr(inputValue + "@" + pn);
+            if(pn==2)FileStr.InputStr(inputValue + "@" + pn);
         }
         //  Debug.Log(inputValue);
         
