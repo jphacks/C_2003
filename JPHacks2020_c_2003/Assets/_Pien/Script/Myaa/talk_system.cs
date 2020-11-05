@@ -34,7 +34,8 @@ public class talk_system : MonoBehaviour
                 text.text = "";
                 replyPanel.SetActive(true);
                 //判定
-                feel = Feel.Get(inputField.text);
+                //feel = Feel.Get(inputField.text);
+                feel = 2;
                 StartCoroutine(Chat());
                 inputField.text = "";
                 
