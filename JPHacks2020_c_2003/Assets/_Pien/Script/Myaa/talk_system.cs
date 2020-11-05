@@ -12,39 +12,32 @@ public class talk_system : MonoBehaviour
 
     private int feel = 0;
     public Text text;
-    [SerializeField] InputField inputField;
+    public InputField inputField;
+    public GameObject replyPanel;
+    GameObject face;
+    FaceChanger faceChanger;
 
     // Start is called before the first frame update
     void Start()
     {
-        inputField = inputField.GetComponent<InputField>();
-    }
+        face = GameObject.Find("face");
+        faceChanger = face.GetComponent<FaceChanger>();
+}
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKey(KeyCode.Return))
-        {
-            feel = 1;
+        {           
             if (inputField.text != "")
             {
                 text.text = "";
+                replyPanel.SetActive(true);
                 //判定
                 feel = Feel.Get(inputField.text);
-                Debug.Log(feel);
-                if (feel == 1)
-                {
-                    text.text += "うれぴ!\n";
-                    StartCoroutine(Chat());
-                    text.text += "ちゃんと覚えておきますね！\n";
-                    inputField.text = "";
-                }
-                else if (feel == -1)
-                {
-                    text.text += "ぴえん。。。\n";
-                    StartCoroutine(Chat());
-                    inputField.text = "";
-                }
+                StartCoroutine(Chat());
+                inputField.text = "";
+                
             }
         }
     }
@@ -56,9 +49,6 @@ public class talk_system : MonoBehaviour
 
         form.AddField("apikey", apikey);
         form.AddField("query", inputField.text, Encoding.UTF8);
-
-        //Logs[0] = inputField.text;
-        //text.text += "\n" + "Player > " +inputField.text;
 
         // 通信
         using (UnityWebRequest request = UnityWebRequest.Post(url, form))
@@ -72,25 +62,33 @@ public class talk_system : MonoBehaviour
             }
             else
             {
-                //try
-                //{
+                try
+                {
                     // 取得したものをJsonで整形
                     string itemJson = request.downloadHandler.text;
                     JsonNode jsnode = JsonNode.Parse(itemJson);
                     // Jsonから会話部分だけ抽出してTextに代入
                     if (text.text != null)
                     {
-                        //Logs[0] += "\n";
-                        //Logs[0] = jsnode["results"][0]["reply"].Get<string>();
                         text.text += jsnode["results"][0]["reply"].Get<string>();
-                    }
-                    //Debug.Log(jsnode["results"][0]["reply"].Get<string>());
-                //}
-                //catch (Exception e)
-                //{
-                //    //エラーが出たらこれがログに吐き出される
-                //    Debug.Log("JsonNode:" + e.Message);
-                //}
+                        if (feel == 2)
+                        {
+                            faceChanger.faceChange(feel);
+                            text.text += "\nちゃんと覚えておきますね！";
+                        }
+                        else if (feel == 1)
+                        {
+                            faceChanger.faceChange(feel);
+                            text.text += "\nぴえん。。。";                                              
+                        }
+                }
+                Debug.Log(jsnode["results"][0]["reply"].Get<string>());
+                }
+                catch (Exception e)
+                {
+                    //エラーが出たらこれがログに吐き出される
+                    Debug.Log("JsonNode:" + e.Message);
+                }
             }
         }
     }
