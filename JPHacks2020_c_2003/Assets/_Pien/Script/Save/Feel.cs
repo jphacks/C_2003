@@ -35,6 +35,8 @@ public class Feel : MonoBehaviour
         processStartInfo.RedirectStandardOutput = true;
         processStartInfo.RedirectStandardError = true;
 
+        processStartInfo.StandardOutputEncoding = Encoding.GetEncoding("shift_jis");
+
         // コマンド実行
         Process process = Process.Start(processStartInfo);
 
