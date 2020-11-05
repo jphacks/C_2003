@@ -27,7 +27,7 @@ public class BT1 : MonoBehaviour
     {
         setStrArr(FileStr.getStringArr());
         Debug.Log("Clicked!");
-       // Feel.LS();
+        Feel.LS();
         if(strArray != null)
         {
             foreach(var a in strArray)
