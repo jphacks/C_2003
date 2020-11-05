@@ -1106,6 +1106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f7659f08bf82bc469554adc111dbe73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feel: 1
   text: {fileID: 934839486}
   inputField: {fileID: 866810105}
   replyPanel: {fileID: 431563905}

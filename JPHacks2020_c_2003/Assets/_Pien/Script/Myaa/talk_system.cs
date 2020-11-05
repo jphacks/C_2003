@@ -10,7 +10,7 @@ public class talk_system : MonoBehaviour
     string url = "https://api.a3rt.recruit-tech.co.jp/talk/v1/smalltalk";
     string apikey = "DZZmVR5SaItxI9ghKkabqWTjkxdpN1dt";
 
-    private int feel = 0;
+    [SerializeField]private int feel = 1;
     public Text text;
     public InputField inputField;
     public GameObject replyPanel;
@@ -35,7 +35,6 @@ public class talk_system : MonoBehaviour
                 replyPanel.SetActive(true);
                 //判定
                 //feel = Feel.Get(inputField.text);
-                feel = 2;
                 StartCoroutine(Chat());
                 inputField.text = "";
                 
