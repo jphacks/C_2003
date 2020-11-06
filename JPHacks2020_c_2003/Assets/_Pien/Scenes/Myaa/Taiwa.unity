@@ -543,8 +543,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 785719174}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.35, y: 0.82, z: 0}
-  m_LocalScale: {x: 5.78133, y: 5.78133, z: 5.78133}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -1106,10 +1106,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f7659f08bf82bc469554adc111dbe73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  feel: 1
   text: {fileID: 934839486}
   inputField: {fileID: 866810105}
   replyPanel: {fileID: 431563905}
+  maincamera: {fileID: 863204723}
 --- !u!1001 &1834592205
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1155,7 +1155,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11475408, guid: b046278bb9b6e104790392b566667ba5, type: 3}
       propertyPath: RainIntensity
-      value: 0.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11475408, guid: b046278bb9b6e104790392b566667ba5, type: 3}
       propertyPath: RainMistThreshold

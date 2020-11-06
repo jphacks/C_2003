@@ -4,25 +4,31 @@ using UnityEngine.Networking;
 using System;
 using System.Collections;
 using System.Text;
+using DigitalRuby.RainMaker;
 
 public class talk_system : MonoBehaviour
 { 
     string url = "https://api.a3rt.recruit-tech.co.jp/talk/v1/smalltalk";
     string apikey = "DZZmVR5SaItxI9ghKkabqWTjkxdpN1dt";
 
-    [SerializeField]private int feel = 1;
+    private int feel;
     public Text text;
     public InputField inputField;
     public GameObject replyPanel;
     GameObject face;
     FaceChanger faceChanger;
+    public GameObject maincamera;
+    Rain2D rain2D;
 
     // Start is called before the first frame update
     void Start()
     {
         face = GameObject.Find("face");
         faceChanger = face.GetComponent<FaceChanger>();
-}
+        //maincamera = GameObject.Find("MainCamera");
+        rain2D = maincamera.GetComponent<Rain2D>();
+        
+    }
 
     // Update is called once per frame
     void Update()
@@ -34,10 +40,18 @@ public class talk_system : MonoBehaviour
                 text.text = "";
                 replyPanel.SetActive(true);
                 //判定
-                //feel = Feel.Get(inputField.text);
+                feel = Feel.Get(inputField.text);
                 StartCoroutine(Chat());
+                faceChanger.faceChange(feel);
                 inputField.text = "";
-                
+                if (feel == 2)
+                {
+                    
+                }
+                else if (feel == 1)
+                {
+                    rain2D.RainScript.RainIntensity = 0.5f;
+                }
             }
         }
     }
@@ -72,16 +86,14 @@ public class talk_system : MonoBehaviour
                     {
                         text.text += jsnode["results"][0]["reply"].Get<string>();
                         if (feel == 2)
-                        {
-                            faceChanger.faceChange(feel);
+                        {                           
                             text.text += "\nちゃんと覚えておきますね！";
                         }
                         else if (feel == 1)
-                        {
-                            faceChanger.faceChange(feel);
+                        {                            
                             text.text += "\nぴえん。。。";                                              
-                        }
-                }
+                        }                        
+                    }
                 Debug.Log(jsnode["results"][0]["reply"].Get<string>());
                 }
                 catch (Exception e)
