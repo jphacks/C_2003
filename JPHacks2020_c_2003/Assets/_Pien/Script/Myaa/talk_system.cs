@@ -15,19 +15,25 @@ public class talk_system : MonoBehaviour
     public Text text;
     public InputField inputField;
     public GameObject replyPanel;
-    GameObject face;
+    public GameObject face;
     FaceChanger faceChanger;
     public GameObject maincamera;
     Rain2D rain2D;
+    public Material sunny;
+    public Material rain;
 
     // Start is called before the first frame update
     void Start()
     {
-        face = GameObject.Find("face");
         faceChanger = face.GetComponent<FaceChanger>();
-        //maincamera = GameObject.Find("MainCamera");
-        rain2D = maincamera.GetComponent<Rain2D>();
-        
+        rain2D = maincamera.GetComponent<Rain2D>();        
+    }
+
+    void Initialize()
+    {
+        faceChanger.faceChange(0);
+        text.text = "";
+        inputField.text = "";
     }
 
     // Update is called once per frame
@@ -46,10 +52,11 @@ public class talk_system : MonoBehaviour
                 inputField.text = "";
                 if (feel == 2)
                 {
-                    
+                    RenderSettings.skybox = sunny;
                 }
                 else if (feel == 1)
                 {
+                    RenderSettings.skybox = rain;
                     rain2D.RainScript.RainIntensity = 0.5f;
                 }
             }
