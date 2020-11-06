@@ -104,9 +104,7 @@ public class Feel : MonoBehaviour
         process.Close();
 
         // MessageBoxに標準出力を表示
-        UnityEngine.Debug.Log("LS");
-        UnityEngine.Debug.Log(standardOutput);
-        UnityEngine.Debug.Log(standardError);
+        UnityEngine.Debug.Log("LS : "+ standardOutput);
 
 
 

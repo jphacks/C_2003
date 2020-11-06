@@ -89,7 +89,7 @@ public class FileStr : MonoBehaviour
 
     public static void write(string str)
     {
-        Debug.Log(filefullname);
+        //Debug.Log(filefullname);
         StreamWriter streamWriter = new StreamWriter(filefullname, true, Encoding.UTF8);
         streamWriter.WriteLine(str);
         streamWriter.Close();
@@ -150,8 +150,8 @@ public class FileStr : MonoBehaviour
         while (Reader.Peek() != -1)
         {
             string line = Reader.ReadLine();
-            strList.Add(line);
-            Debug.Log(line);
+            if(line.Length>2)strList.Add(line);
+           // Debug.Log(line);
         }
 
         Reader.Close();
