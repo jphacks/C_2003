@@ -26,7 +26,17 @@ public class Feel : MonoBehaviour
     public static int Get(string str)
     {
         // 第1引数がコマンド、第2引数がコマンドの引数
-        ProcessStartInfo processStartInfo = new ProcessStartInfo("\"cmd.exe\"", " \"/c python Feel.py " + str + " \"");
+        ProcessStartInfo processStartInfo = null ;
+
+        if(Application.platform == RuntimePlatform.WindowsEditor)
+        {
+            processStartInfo = new ProcessStartInfo("\"cmd.exe\"", " \"/c python Feel.py " + str + " \"");
+        }
+        else
+        {
+            processStartInfo = new ProcessStartInfo("/bin/bash", "-c python Feel.py " + str);
+        }
+
         // ウィンドウを表示しない
         processStartInfo.CreateNoWindow = true;
         processStartInfo.UseShellExecute = false;
@@ -35,7 +45,7 @@ public class Feel : MonoBehaviour
         processStartInfo.RedirectStandardOutput = true;
         processStartInfo.RedirectStandardError = true;
 
-        processStartInfo.StandardOutputEncoding = Encoding.GetEncoding("shift_jis");
+        //processStartInfo.StandardOutputEncoding = Encoding.GetEncoding("shift_jis");
 
         // コマンド実行
         Process process = Process.Start(processStartInfo);
@@ -65,7 +75,16 @@ public class Feel : MonoBehaviour
     {
 
         // 第1引数がコマンド、第2引数がコマンドの引数
-        ProcessStartInfo processStartInfo = new ProcessStartInfo("\"cmd.exe\"", "\"/c dir\"");
+        //ProcessStartInfo processStartInfo = new ProcessStartInfo("\"cmd.exe\"", "\"/c dir\"");
+        ProcessStartInfo processStartInfo = null;
+        if (Application.platform == RuntimePlatform.WindowsEditor)
+        {
+            processStartInfo = new ProcessStartInfo("\"cmd.exe\"", "\"/c dir\"");
+        }
+        else
+        {
+            processStartInfo = new ProcessStartInfo("/bin/bash", "-c ls");
+        }
         // ウィンドウを表示しない
         processStartInfo.CreateNoWindow = true;
         processStartInfo.UseShellExecute = false;

@@ -20,6 +20,15 @@ public class inT : MonoBehaviour
         InitInputField();
     }
 
+    public void OnValueChanged()
+    {
+        string value = this.GetComponent<InputField>().text;
+        if (value.IndexOf("\n") != -1)
+        {
+            this.GetComponent<InputField>().text = value;
+        }
+    }
+
 
 
     /// <summary>
@@ -35,7 +44,9 @@ public class inT : MonoBehaviour
         if (inputValue.Length >= 2)
         {
             int pn = Feel.Get(inputValue);
-            if(pn==2)FileStr.InputStr(inputValue + "@" + pn);
+            //if(pn==2)FileStr.InputStr(inputValue + "@" + pn);
+            //Only Positive & Sentence
+            if (pn == 2) FileStr.InputStr(inputValue);
         }
         //  Debug.Log(inputValue);
         

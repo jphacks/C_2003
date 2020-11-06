@@ -25,6 +25,9 @@ public class BT1 : MonoBehaviour
 
     public void Drop()
     {
+
+        Debug.Log("Your OS "+Application.platform);
+
         setStrArr(FileStr.getStringArr());
         Debug.Log("Clicked!");
         Feel.LS();
