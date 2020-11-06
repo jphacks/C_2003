@@ -21,6 +21,8 @@ public class talk_system : MonoBehaviour
     Rain2D rain2D;
     public Material sunny;
     public Material rain;
+    public Material cloud;
+    public Button topreturn;
 
     // Start is called before the first frame update
     void Start()
@@ -29,18 +31,24 @@ public class talk_system : MonoBehaviour
         rain2D = maincamera.GetComponent<Rain2D>();        
     }
 
-    void Initialize()
+    public void Initialize()
     {
         faceChanger.faceChange(0);
         text.text = "";
         inputField.text = "";
+        replyPanel.SetActive(false);
+        topreturn.gameObject.SetActive(false);
+        inputField.gameObject.SetActive(true);
+        RenderSettings.skybox = cloud;
+        rain2D.RainScript.RainIntensity = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKey(KeyCode.Return))
-        {           
+        {
+            inputField.gameObject.SetActive(false);
             if (inputField.text != "")
             {
                 text.text = "";
@@ -60,6 +68,7 @@ public class talk_system : MonoBehaviour
                     rain2D.RainScript.RainIntensity = 0.5f;
                 }
             }
+            topreturn.gameObject.SetActive(true);
         }
     }
 
