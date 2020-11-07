@@ -105,6 +105,7 @@ public class talk_system : MonoBehaviour
                     if (text.text != null)
                     {
                         text.text += jsnode["results"][0]["reply"].Get<string>();
+                        text.text += "。";
                         if (feel == 2)
                         {                           
                             text.text += "\nちゃんと覚えておきますね！";
@@ -115,9 +116,9 @@ public class talk_system : MonoBehaviour
                             text.text += Feel.getMessage();
                         }                        
                     }
-                    Debug.Log(jsnode["results"][0]["reply"].Get<string>());
+                    //Debug.Log(jsnode["results"][0]["reply"].Get<string>());
                 }
-                catch (Exception e)
+                    catch (Exception e)
                 {
                     //エラーが出たらこれがログに吐き出される
                     Debug.Log("JsonNode:" + e.Message);
