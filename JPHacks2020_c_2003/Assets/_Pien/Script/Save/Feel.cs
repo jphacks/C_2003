@@ -28,7 +28,7 @@ public class Feel : MonoBehaviour
         // 第1引数がコマンド、第2引数がコマンドの引数
         ProcessStartInfo processStartInfo = null ;
 
-        if(Application.platform == RuntimePlatform.WindowsEditor)
+        if(Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
             processStartInfo = new ProcessStartInfo("\"cmd.exe\"", " \"/c python Feel.py " + str + " \"");
         }
