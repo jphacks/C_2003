@@ -42,6 +42,7 @@ public class talk_system : MonoBehaviour
         inputField.gameObject.SetActive(true);
         RenderSettings.skybox = cloud;
         rain2D.RainScript.RainIntensity = 0f;
+        rain2D.RainScript.WindSoundVolumeModifier = 0f;
     }
 
     // Update is called once per frame
@@ -65,7 +66,8 @@ public class talk_system : MonoBehaviour
                 else if (feel == 1)
                 {
                     RenderSettings.skybox = rain;
-                    rain2D.RainScript.RainIntensity = 0.5f;                    
+                    rain2D.RainScript.RainIntensity = 0.5f;
+                    rain2D.RainScript.WindSoundVolumeModifier = 0.5f;
                 }
                 StartCoroutine(Chat());
                 inputField.text = "";
@@ -94,8 +96,8 @@ public class talk_system : MonoBehaviour
             }
             else
             {
-                //try
-                //{
+                try
+                {
                     // 取得したものをJsonで整形
                     string itemJson = request.downloadHandler.text;
                     JsonNode jsnode = JsonNode.Parse(itemJson);
@@ -113,13 +115,13 @@ public class talk_system : MonoBehaviour
                             text.text += Feel.getMessage();
                         }                        
                     }
-                //Debug.Log(jsnode["results"][0]["reply"].Get<string>());
-                //}
-                //catch (Exception e)
-                //{
-                //    //エラーが出たらこれがログに吐き出される
-                //    Debug.Log("JsonNode:" + e.Message);
-                //}
+                    Debug.Log(jsnode["results"][0]["reply"].Get<string>());
+                }
+                catch (Exception e)
+                {
+                    //エラーが出たらこれがログに吐き出される
+                    Debug.Log("JsonNode:" + e.Message);
+                }
             }
         }
     }
