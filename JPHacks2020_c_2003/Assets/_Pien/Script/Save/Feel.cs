@@ -111,4 +111,35 @@ public class Feel : MonoBehaviour
         return 0;
     }
 
+    public static string getMessage()
+    {
+        string str;
+            str = "そいつぁあ大変やったなあ\n";
+            List<string> sArr = Shuffle(FileStr.getStringArr());
+            int i = 0;
+            foreach (var a in sArr)
+            {
+                i++;
+                //ここでランダム3つ表示。
+                str += "・" + a + "\n";
+                if (i == 3) break;
+            }
+            str += "元気だしてや";
+        return str;
+    }
+    // シャッフル
+    public static List<string> Shuffle(List<string> list)
+    {
+
+        for (int i = 0; i < list.Count; i++)
+        {
+            string temp = list[i];
+            int randomIndex = Random.Range(0, list.Count);
+            list[i] = list[randomIndex];
+            list[randomIndex] = temp;
+        }
+
+        return list;
+    }
+
 }
