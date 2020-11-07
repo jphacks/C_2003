@@ -1,7 +1,5 @@
 # ぴえんtoYeah
-
-![PIENtoYeah](https://user-images.githubusercontent.com/62426591/98427917-8621ec80-20e2-11eb-9854-e40d6a39ef93.png)
-
+<img src="https://user-images.githubusercontent.com/62426591/98427917-8621ec80-20e2-11eb-9854-e40d6a39ef93.png"  width="500">
 
 ## 製品概要
 **こころ×Tech**  
