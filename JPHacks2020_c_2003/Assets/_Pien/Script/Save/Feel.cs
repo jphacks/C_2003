@@ -134,7 +134,7 @@ public class Feel : MonoBehaviour
         for (int i = 0; i < list.Count; i++)
         {
             string temp = list[i];
-            int randomIndex = Random.Range(0, list.Count);
+            int randomIndex = UnityEngine.Random.Range(0, list.Count);
             list[i] = list[randomIndex];
             list[randomIndex] = temp;
         }
