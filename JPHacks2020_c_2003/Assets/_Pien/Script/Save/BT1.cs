@@ -7,8 +7,8 @@ using UnityEngine.UIElements;
 public class BT1 : MonoBehaviour
 {
 
-    //public Text boxtext ;
-    //public GameObject text;
+    public Text boxtext ;
+    public GameObject text;
 
     public Text msgtxt;
     public GameObject mtext;
@@ -21,7 +21,7 @@ public class BT1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //boxtext = text.GetComponent<Text>();
+        boxtext = text.GetComponent<Text>();
         msgtxt = mtext.GetComponent<Text>();
 
         fukidasiImg = fukidashi.GetComponent<UnityEngine.UI.Image>();
@@ -35,27 +35,27 @@ public class BT1 : MonoBehaviour
        // boxtext.text = "AAAAAAA";
     }
 
-    //public void Drop()
-    //{
+    public void Drop()
+    {
 
-    //    Debug.Log("Your OS "+Application.platform);
+        Debug.Log("Your OS "+Application.platform);
 
-    //    setStrArr(FileStr.getStringArr());
-    //    Debug.Log("Clicked!");
-    //    Feel.LS();
-    //    if(strArray != null)
-    //    {
-    //        boxtext.text = "";
-    //        foreach(var a in strArray)
-    //        {
-    //            Debug.Log("show :" + a);
-    //            if(a.Length>2)boxtext.text += a+"\n";
-    //        }
-    //    }
-    //    // テキストボックスに文字入れる関数
+        setStrArr(FileStr.getStringArr());
+        Debug.Log("Clicked!");
+        Feel.LS();
+        if(strArray != null)
+        {
+            boxtext.text = "";
+            foreach(var a in strArray)
+            {
+                Debug.Log("show :" + a);
+                if(a.Length>2)boxtext.text += a+"\n";
+            }
+        }
+        // テキストボックスに文字入れる関数
 
-    //    showMessage();
-    //}
+        showMessage();
+    }
 
     public void setStrArr(List<string> arr)
     {

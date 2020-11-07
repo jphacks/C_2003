@@ -114,7 +114,7 @@ public class Feel : MonoBehaviour
     public static string getMessage()
     {
         string str;
-            str = "でも、こんないいこともありましたよね！\n";
+            str = "そいつぁあ大変やったなあ\n";
             List<string> sArr = Shuffle(FileStr.getStringArr());
             int i = 0;
             foreach (var a in sArr)
@@ -122,9 +122,9 @@ public class Feel : MonoBehaviour
                 i++;
                 //ここでランダム3つ表示。
                 str += "・" + a + "\n";
-                if (i == 1) break;
+                if (i == 3) break;
             }
-            
+            str += "元気だしてや";
         return str;
     }
     // シャッフル
